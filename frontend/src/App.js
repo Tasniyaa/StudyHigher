@@ -13,6 +13,8 @@ import ProgramDetails from './pages/ProgramDetails';
 import Navbar from './components/Navbar';
 import DocumentReviewForm from './pages/DocumentReviewForm';
 import PaymentPage from './pages/PaymentPage';
+import Footer from './components/Footer';
+
 
 function App() {
   return (
@@ -37,6 +39,7 @@ function App() {
 
         <Route path="/documentReviewForm" element = {<DocumentReviewForm/>}/>
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }

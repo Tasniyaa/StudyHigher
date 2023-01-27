@@ -102,69 +102,65 @@ const DocumentReviewForm = () => {
 
 
 
-  //   const handleSubmit = async (event) => {
-  //     event.preventDefault();
+    const handleSubmit = async (event) => {
+      event.preventDefault();
 
-  //       const password = "password";
+        const password = "password";
           
-  //         const {username,email, phone, languageTest, languageTestScore,targetSchool, courrse,targetCountry,documentType } = values;
-  //         const { data } = await axios.post(paymentRoute, {
-  //           username,
-  //           email,
-  //           password,
-  //         });
+          const {username,email, phone, languageTest, languageTestScore,targetSchool, courrse,targetCountry,documentType } = values;
+          const { data } = await axios.post(paymentRoute, {
+            username,
+            email,
+            password,
+          });
+
+          if (!data.url ) {
+            console.log("Error finding message");
+          }
+
+          window.location.replace(data.url);
+  };
 
 
-          
+//   const handleSubmit = async (event) => {
+//     event.preventDefault();
 
-  //         if (!data.url ) {
-  //           console.log("Error finding message");
-  //         }
-
-  //         window.location.replace(data.url);
+//       const password = "passwooord";
         
-  // };
-
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-      const password = "passwooord";
+//         const {username, email, phone,languageTest, languageTestScore,targetSchool, course,targetCountry,documentType } = values;
         
-        const {username, email, phone,languageTest, languageTestScore,targetSchool, course,targetCountry,documentType } = values;
-        
-        const [paymentResponse, registerResponse] =await Promise.all([
-          await axios.post(paymentRoute, {
-              username,
-              email,
-              password,
-            }),
-            await axios.post( documentFormRoute, {
-              username,
-              email,
-              password,
-              phone,
-              languageTest, 
-              languageTestScore,
-              targetSchool, 
-              course,
-              targetCountry,
-              documentType
-            })
-        ])
-        console.log(paymentResponse, registerResponse);
+//         const [paymentResponse, registerResponse] =await Promise.all([
+//           await axios.post(paymentRoute, {
+//               username,
+//               email,
+//               password,
+//             }),
+//             await axios.post( documentFormRoute, {
+//               username,
+//               email,
+//               password,
+//               phone,
+//               languageTest, 
+//               languageTestScore,
+//               targetSchool, 
+//               course,
+//               targetCountry,
+//               documentType
+//             })
+//         ])
+//         console.log(paymentResponse, registerResponse);
 
-        // registerResponse -> ata hocche register r response..r modde data ace.
+//         // registerResponse -> ata hocche register r response..r modde data ace.
 
         
-        // paymentResponse.data.url
-        if (!paymentResponse.data.url ) {
-          console.log("Error finding message");
-        } else{ // must else use kora lagbe
-          window.location.replace(paymentResponse.data.url); 
-        }
+//         // paymentResponse.data.url
+//         if (!paymentResponse.data.url ) {
+//           console.log("Error finding message");
+//         } else{ // must else use kora lagbe
+//           window.location.replace(paymentResponse.data.url); 
+//         }
       
-};
+// };
 
   const handleChange = (event) => {
     setValues({ ...values, [event.target.name]: event.target.value });
