@@ -27,6 +27,15 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: "",
   },
+  isAdmin: {
+    type: String,
+    default: false,
+  },
+  isConsultant: {
+    type: String,
+    default: false,
+  },
+  
 });
 
 module.exports = mongoose.model("Users", userSchema);
