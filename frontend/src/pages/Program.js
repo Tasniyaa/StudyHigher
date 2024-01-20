@@ -65,7 +65,7 @@ const Program = () => {
   ]; 
   return(
   <>
-    <VerSearchNav />
+    {/* <VerSearchNav /> */}
    
     {cardVDetails
       .map((c)=>(
